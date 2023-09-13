@@ -9,6 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import the.lonely.wolf.horoscoapp.BuildConfig.BASE_URL
 import the.lonely.wolf.horoscoapp.data.RepositoryImpl
 import the.lonely.wolf.horoscoapp.data.core.interceptors.AuthInterceptor
 import the.lonely.wolf.horoscoapp.domain.Repository
@@ -22,7 +23,7 @@ object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient):Retrofit{
         return Retrofit
             .Builder()
-            .baseUrl("https://newastro.vercel.app/")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
